@@ -2,7 +2,7 @@ group 'seo.dongu.heic_to_jpg'
 version '1.0-SNAPSHOT'
 
 buildscript {
-    ext.kotlin_version = '2.1.0'
+    ext.kotlin_version = '1.6.21'
     repositories {
         google()
         jcenter()
@@ -53,6 +53,6 @@ dependencies {
 tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
     kotlinOptions {
         jvmTarget = "1.8"
-        // javaParameters = true
+        // freeCompilerArgs = ["-Xjvm-default=compatibility"] // опционально
     }
 }

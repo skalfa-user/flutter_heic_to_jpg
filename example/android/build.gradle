@@ -1,8 +1,10 @@
 buildscript {
-    ext.kotlin_version = '2.1.0'
+    ext.kotlin_version = '1.6.21'
+
     repositories {
         google()
         jcenter()
+        mavenCentral()
     }
 
     dependencies {
@@ -15,6 +17,7 @@ allprojects {
     repositories {
         google()
         jcenter()
+        mavenCentral()
     }
 }
 
@@ -28,4 +31,12 @@ subprojects {
 
 task clean(type: Delete) {
     delete rootProject.buildDir
+}
+
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
 }
