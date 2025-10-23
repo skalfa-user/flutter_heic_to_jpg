@@ -8,6 +8,7 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:8.1.0'
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:2.1.0'
     }
 }
 
@@ -19,11 +20,11 @@ rootProject.allprojects {
 }
 
 apply plugin: 'com.android.library'
-apply plugin: 'org.jetbrains.kotlin.android'
+apply plugin: 'kotlin-android'
 
 android {
     namespace 'seo.dongu.heic_to_jpg'
-    compileSdk 36
+    compileSdk 34
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
@@ -46,6 +47,10 @@ android {
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
     }
+}
+
+kotlin {
+    jvmToolchain(17)
 }
 
 dependencies {
